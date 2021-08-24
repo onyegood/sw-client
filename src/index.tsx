@@ -1,9 +1,14 @@
 import App from './components/App'
-import DetailPage from './components/DetailPage'
+import FilmsPage from './pages/films'
+import PageNotFound from './pages/page-not-found'
 import PeoplePage from './pages/people'
+import PlanetsPage from './pages/planets'
 import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import SpeciesPage from './pages/species'
+import StarshipsPage from './pages/starships'
+import VehiclesPage from './pages/vehicles'
 import {colors} from "./theme/colors"
 import { createGlobalStyle } from 'styled-components'
 import createStore from './store'
@@ -36,7 +41,12 @@ const routes = (
       <App>
         <Switch>
           <Route path={['/', '/people']} exact component={PeoplePage} />
-          <Route path="/detail/:id" exact component={DetailPage} />
+          <Route path="/planets" exact component={PlanetsPage} />
+          <Route path="/species" exact component={SpeciesPage} />
+          <Route path="/films" exact component={FilmsPage} />
+          <Route path="/vehicles" exact component={VehiclesPage} />
+          <Route path="/starships" exact component={StarshipsPage} />
+          <Route path="*/*" component={PageNotFound} />
         </Switch>
       </App>
     </Router>
