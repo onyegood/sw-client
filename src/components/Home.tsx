@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { fetchRoots } from '../actions';
 import sentenceCase from 'sentence-case';
+
 import {
 	Nav,
 	NavItem,
@@ -13,7 +14,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Home = () => {
 	const dispatch = useDispatch();
-	const [tab, setTab] = useState(void 0);
+	const [tab, setTab] = useState('');
+	// @ts-ignore
 	const roots = useSelector(state => state.roots);
 
 	useEffect(() => {
@@ -29,7 +31,7 @@ const Home = () => {
 			{roots.payload && (
 				<div className={'mt-3'}>
 					<Nav tabs>
-						{keys.map(k => (
+						{keys.map((k: string) => (
 							<NavItem key={k}>
 								<NavLink
 									className={classnames({ active: tab === k })}

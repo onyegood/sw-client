@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import initialState from './initial-state';
+
 import { FETCH_ROOTS, FETCH_ROOTS_FAILURE, FETCH_ROOTS_SUCCESS } from '../constants';
 
 export default combineReducers({
