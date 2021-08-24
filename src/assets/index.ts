@@ -1,3 +1,4 @@
+import BG from './bg.png';
 import Facebook from './facebook-icon.svg';
 import IconSprite from './section_icon_sprite.png';
 import ImageOne from './image1.webp';
@@ -9,5 +10,5 @@ import SearchIcon from './search_icon.png';
 import Twitter from './twitter-icon.svg';
 import Youtube from './youtube-icon.svg';
 
-export {Logo, Facebook, Instergram, Twitter, Youtube, Search, Kids, SearchIcon, ImageOne, IconSprite}
+export {Logo, BG, Facebook, Instergram, Twitter, Youtube, Search, Kids, SearchIcon, ImageOne, IconSprite}
 

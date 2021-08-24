@@ -1,4 +1,5 @@
 import App from './components/App'
+import { BG } from './assets'
 import FilmsPage from './pages/films'
 import PageNotFound from './pages/page-not-found'
 import PeoplePage from './pages/people'
@@ -11,7 +12,7 @@ import StarshipsPage from './pages/starships'
 import VehiclesPage from './pages/vehicles'
 import {colors} from "./theme/colors"
 import { createGlobalStyle } from 'styled-components'
-import createStore from './store'
+import {store} from './redux/store'
 
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
@@ -25,7 +26,10 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
+      background-image: url(${BG});
       background-color: ${colors.primary} !important;
+      background-size: auto;
+      background-blend-mode: overlay;
     }
 
     a,
@@ -35,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const routes = (
-  <Provider store={createStore()}>
+  <Provider store={store}>
     <Router>
       <GlobalStyle />
       <App>

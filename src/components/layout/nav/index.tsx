@@ -4,13 +4,12 @@ import { Logo } from '../../../assets'
 import SmallSearchComponent from '../../small-search'
 import SocialMediaLinks from '../../social-media'
 import { colors } from '../../../theme/colors'
-import { fetchRoots } from '../../../actions'
+import { fetchRootsRequest } from '../../../redux/actions'
 import styled from 'styled-components'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
 
 import { Col, Container, Nav, Row } from 'reactstrap'
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 const NavContainer = styled(Container)`
   padding: 20px 0;
@@ -31,6 +30,7 @@ const NavContainer = styled(Container)`
         padding-top: 0;
 
         a {
+          font-size: 0.875rem;
           img {
             width: 20px;
             height: 20px;
@@ -108,7 +108,7 @@ const NavContainer = styled(Container)`
     border-bottom: 1px solid ${colors.border};
     ul {
       li {
-        padding: 4px 39px;
+        padding: 4px 32px;
         display: table-cell;
         width: auto;
         margin: 0;
@@ -117,9 +117,10 @@ const NavContainer = styled(Container)`
         border: 1px solid ${colors.border};
         box-sizing: border-box;
         line-height: 2.5rem;
-        font-weight: bold;
+        /* font-weight: bold; */
         a {
           color: ${colors.link};
+          font-size: .85rem;
           p {
             margin: 0;
             padding: 0;
@@ -148,12 +149,12 @@ const NavContainer = styled(Container)`
   }
 `
 const NavComponent = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // @ts-ignore
   const { payload } = useSelector(state => state.roots)
 
   useEffect(() => {
-    dispatch(fetchRoots())
+    dispatch(fetchRootsRequest())
   }, [dispatch])
 
   const keys = Object.keys(payload || {});

@@ -11,7 +11,7 @@ const CustomNavItem: React.FC<Props> = ({ title }) => {
     <NavItem>
       <NavLink to={`/${title}`}>
         <div className='link-container'>
-          {title}
+          {title.toUpperCase()}
           <span />
         </div>
       </NavLink>
