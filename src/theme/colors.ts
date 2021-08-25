@@ -8,4 +8,6 @@ export const colors = {
   border: "#333",
   white: "#fff",
   red: "#e15021",
+  black: '#000',
+  loaderColor: '#e5f403'
 };

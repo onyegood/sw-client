@@ -5,19 +5,27 @@ import styled from "styled-components";
 
 export const CardsContainer = styled(Container)`
   .thumbnail-container {
-    border-radius: 10px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     cursor: pointer;
+    height: 150px;
+    background-color: ${colors.primaryLight};
+    text-align: center;
+    h1{
+      padding-top: 20px;
+      color: #3030307a;
+    }
     img {
       width: 100%;
       max-height: 200px;
     }
     .image-container {
-      position: relative;
+      /* position: relative; */
     }
     .time {
       background-color: red;
       height: 40px;
-      position: absolute;
+      /* position: absolute; */
       top: 0;
       bottom: 0;
       left: 0;
@@ -56,5 +64,5 @@ export const CardsContainer = styled(Container)`
       width: 1.7em;
       height: 1.7em;
     }
-  }
+    
 `
