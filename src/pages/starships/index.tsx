@@ -3,29 +3,37 @@ import CardComponent from '../../components/card'
 import { CardsContainer } from '../../styles'
 import EmptyStateComponent from '../../components/empty-state'
 import LoadingComponent from '../../components/loading'
-import React from 'react'
 import { Row } from 'reactstrap'
+import { filteredData } from '../../helpers/searchHelper'
 import { useFetchData } from '../../hooks/useFetchRoot'
+
+import React, { useState } from 'react'
 
 const StarshipsPage = () => {
   const { root, isLoading } = useFetchData({ path: 'starships' })
-
+  const [state, setState] = useState({ name: '' })
+  
   if (isLoading && !root) {
     return <LoadingComponent />
   }
 
+  const handleFilterData = () => {}
+
   return (
     <>
-      <BigSearchComponent 
+      <BigSearchComponent
       name='search'
-      value=''
-      page='starships'
-      onClick={() => {}}
-      onChange={() => {}}/>
+        value={state.name}
+        page='starships'
+        onClick={() => handleFilterData()}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+          setState({ name: e.target.value })
+        }
+      />
       {root && root?.results.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {root?.results.map((item: any) => (
+            {filteredData('name', state.name, root?.results).map((item: any) => (
               <CardComponent
                 key={item.name}
                 name={item.name}

@@ -16,6 +16,7 @@ export const BigSearchContainer = styled(Container)`
     &:focus {
       outline: none;
       background-color: ${colors.secondary};
+      color: ${colors.primaryLight};
     }
   }
   button {

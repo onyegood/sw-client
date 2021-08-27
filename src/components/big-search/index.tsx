@@ -7,7 +7,7 @@ interface Props {
   value: string;
   page: string;
   onClick: () => void;
-  onChange: () => void;
+  onChange: (e: any) => void;
 }
 const BigSearchComponent = ({ name, value, page, onClick, onChange }: Props) => (
   <BigSearchContainer>

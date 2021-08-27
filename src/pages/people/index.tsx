@@ -3,37 +3,35 @@ import CardComponent from '../../components/card'
 import { CardsContainer } from '../../styles'
 import EmptyStateComponent from '../../components/empty-state'
 import LoadingComponent from '../../components/loading'
-import React from 'react'
 import { Row } from 'reactstrap'
+import { filteredData } from '../../helpers/searchHelper'
 import { useFetchData } from '../../hooks/useFetchRoot'
-import useSearch from '../../hooks/useSearch'
+
+import React, { useState } from 'react'
 
 const PeoplePage = () => {
   const { root, isLoading } = useFetchData({ path: 'people' })
+  const [state, setState] = useState({ name: ''});
 
   if (isLoading && !root) {
     return <LoadingComponent />
   }
 
-  // const {filteredData} = useSearch();
-
-  // const filteredPayload = filteredData(root?.results, "Luke Skywalker");
-
-  // console.log(filteredPayload);
+  const handleFilterData =()=> {}
 
   return (
     <>
       <BigSearchComponent
         name='search'
-        value=''
+        value={state.name}
         page='people'
-        onClick={() => {}}
-        onChange={() => {}}
+        onClick={() => handleFilterData()}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setState({name: e.target.value})}
       />
-      {root && root?.results.length > 0 ? (
+      {root?.results && root?.results.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {root?.results.map((item: any, index: number) => (
+            {filteredData('name', state.name, root?.results).map((item: any, index: number) => (
               <CardComponent key={index + 1} name={item.name} />
             ))}
           </Row>
