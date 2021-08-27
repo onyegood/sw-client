@@ -19,6 +19,8 @@ const PlanetsPage = () => {
 
   const handleFilterData = () => {}
 
+  const filtered = filteredData('name', state.name, root?.results);
+
   return (
     <>
       <BigSearchComponent
@@ -29,10 +31,10 @@ const PlanetsPage = () => {
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
           setState({ name: e.target.value })}
       />
-      {root && root?.results.length > 0 ? (
+      {filtered && filtered.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {filteredData('name', state.name, root?.results).map(
+            {filtered.map(
               (item: any, index: number) => (
                 <CardComponent key={index + 1} name={item.name} />
               )

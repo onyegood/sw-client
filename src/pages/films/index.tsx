@@ -18,6 +18,8 @@ const FilmsPage = () => {
   }
 
   const handleFilterData =()=> {}
+
+  const filtered = filteredData('title', state.name, root?.results);
   
   return (
     <>
@@ -30,10 +32,10 @@ const FilmsPage = () => {
           setState({ name: e.target.value })
         }
       />
-      {root && root?.results.length > 0 ? (
+      {filtered && filtered.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {filteredData("title", state.name, root?.results).map(
+            {filtered.map(
               (item: any, index: number) => (
                 <CardComponent key={index + 1} name={item.title} />
               )

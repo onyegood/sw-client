@@ -17,6 +17,8 @@ const StarshipsPage = () => {
     return <LoadingComponent />
   }
 
+  const filtered = filteredData('name', state.name, root?.results);
+
   const handleFilterData = () => {}
 
   return (
@@ -30,10 +32,10 @@ const StarshipsPage = () => {
           setState({ name: e.target.value })
         }
       />
-      {root && root?.results.length > 0 ? (
+      {filtered && filtered.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {filteredData('name', state.name, root?.results).map((item: any) => (
+            {filtered.map((item: any) => (
               <CardComponent
                 key={item.name}
                 name={item.name}
