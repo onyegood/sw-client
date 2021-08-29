@@ -1,12 +1,21 @@
-export default {
-	roots: {
-		isLoading: true,
-		payload: void 0,
-		error: void 0,
-	},
+const initialState = {
+	isLoading: true,
+	error: void 0,
 	root: {
-		isLoading: true,
-		payload: void 0,
-		error: void 0,
+		count: 0, 
+    next: '', 
+    previous: null, 
+    results: []
 	},
+	roots: {
+		people: "", 
+    planets: "", 
+    films: "", 
+    species: "", 
+    vehicles: "", 
+    starships: ""
+	},
+  detail: {}
 };
+
+export default initialState;

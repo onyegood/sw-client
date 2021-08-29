@@ -1,3 +1,6 @@
+import { IPerson } from "../models/IPerson";
+import { IRoots } from "../models/IRoots";
+
 export interface IActions {
 	FETCH_ROOTS: string;
 	FETCH_ROOTS_SUCCESS: string;
@@ -17,9 +20,17 @@ export interface IFetchRootsFailure {
 	payload: any
 }
 
-export interface SocialMediaObject {
-	id: number;
-	name: string;
-	icon: string;
-	url: string;
+export interface IRootState {
+	roots: {
+		isLoading: boolean,
+		error: string | null,
+		root: {
+			count?: number, 
+			next?: string, 
+			previous: null, 
+			results: IPerson[]
+		},
+		detail: IPerson,
+		roots: IRoots
+	}
 }

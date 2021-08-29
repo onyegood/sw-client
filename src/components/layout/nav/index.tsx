@@ -1,27 +1,29 @@
+import AppLogo from '../../logo'
 import CustomNavItem from './CustomNavItem'
+import DarkModeControl from '../../dark-mode-button'
 import { Link } from 'react-router-dom'
-import { Logo } from '../../../assets'
 import { NavContainer } from './Style'
 import React from 'react'
 import SmallSearchComponent from '../../small-search'
 import SocialMediaLinks from '../../social-media'
-import { useFetchData } from '../../../hooks/useFetchRoot'
+import useStoredData from '../../../hooks/useStoredData'
 
 import { Col, Nav, Row } from 'reactstrap'
 
 const NavComponent = () => {
-  const {linkPayload} = useFetchData({});
+  const {roots} = useStoredData();
 
   return (
-    <NavContainer fluid={true}>
+    <NavContainer>
       <Row>
         <SocialMediaLinks />
 
         <Col xs='4' className='text-center'>
-          <img src={Logo} alt='Star Wars Logo' />
+          <AppLogo />
         </Col>
-        <Col xs='4' md={{ size: 2, offset: 2 }}>
-          <SmallSearchComponent />
+        <Col xs='4' md={{ size: 2, offset: 2 }} className="text-right">
+          
+          <DarkModeControl />
           <div className='text-right mt-1 auth'>
             <Link to='#'>LOG IN</Link>
             <span className='slash'> / / </span>
@@ -32,7 +34,7 @@ const NavComponent = () => {
       <Row className='nav-bar'>
         <Col md='7' className='mx-auto'>
           <Nav>
-            {linkPayload.map((k: string) => (
+            {roots.map((k: string) => (
               <CustomNavItem key={k} title={k} />
             ))}
           </Nav>

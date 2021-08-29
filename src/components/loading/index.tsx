@@ -6,9 +6,9 @@ interface Props {
 
 const LoadingComponent: React.FC<Props> = ({ text }) => {
   return (
-    <LoadingContainer>
+    <LoadingContainer data-testid="loading-state">
       <div className='loader' />
-      <h1 className="mt-20">{text ? text : 'Fetching data...'}</h1>
+      <p className="mt-20" data-testid="loading-text">{text ? text : 'Fetching data...'}</p>
     </LoadingContainer>
   )
 }

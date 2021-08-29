@@ -37,7 +37,7 @@ const VehiclesPage = () => {
           <Row className='mt-5'>
             {filtered.map(
               (item: any) => (
-                <CardComponent key={item.name} name={item.name} />
+                <CardComponent key={item.name} name={item.name} url={item.url} />
               )
             )}
           </Row>

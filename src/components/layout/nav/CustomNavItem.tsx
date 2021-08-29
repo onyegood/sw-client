@@ -1,20 +1,33 @@
 import { NavItem } from 'reactstrap'
-import {NavLink} from "react-router-dom"
 import React from 'react'
 
+import { Link, useLocation } from 'react-router-dom'
+
 interface Props {
-  title: string;
+  title: string
 }
 
+/**
+ * @useLocation
+ * extract pathname from useLocation
+ * set active link by checking if pathname includes route name
+ */
+
 const CustomNavItem: React.FC<Props> = ({ title }) => {
+  const { pathname } = useLocation()
+
   return (
-    <NavItem>
-      <NavLink to={`/${title}`}>
+    <NavItem data-testid="navitem">
+      <Link
+        to={`/${title}`}
+        className={pathname.includes(title) ? 'active' : ''}
+        data-testid={title}
+      >
         <div className='link-container'>
           {title.toUpperCase()}
           <span />
         </div>
-      </NavLink>
+      </Link>
     </NavItem>
   )
 }

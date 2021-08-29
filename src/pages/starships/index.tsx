@@ -39,6 +39,7 @@ const StarshipsPage = () => {
               <CardComponent
                 key={item.name}
                 name={item.name}
+                url={item.url}
               />
             ))}
           </Row>

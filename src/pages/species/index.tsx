@@ -37,7 +37,7 @@ const SpeciesPage = () => {
           <Row className='mt-5'>
             {filtered.map(
               (item: any, index: number) => (
-                <CardComponent key={index + 1} name={item.name} />
+                <CardComponent key={index + 1} name={item.name} url={item.url} />
               )
             )}
           </Row>

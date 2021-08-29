@@ -1,25 +1,38 @@
+import { Action } from 'redux';
+
 import { call, put } from 'redux-saga/effects';
-import { fetchRootFailure, fetchRootSuccess, fetchRootsFailure, fetchRootsSuccess } from '../actions/rootsAction';
+import { fetchRootFailure, fetchRootSuccess, fetchRootsFailure, fetchRootsSuccess, fetchSingleItemFailure, fetchSingleItemSuccess } from '../actions/rootsAction';
 import { getRoot, getRoots } from '../../api';
 
-export function* fetchRootsSaga(action: any) {
+export function* fetchRootsSaga() {
   try {
     // @ts-ignore
-    const response = yield call(getRoots, action);
+    const response = yield call(getRoots);
+
     yield put(fetchRootsSuccess(response));
   } catch (errors) {
-    console.log(errors);
     yield put(fetchRootsFailure(errors));
   }
 }
 
-export function* fetchRootSaga(action: any) {
+export function* fetchRootSaga(action: Action) {
   try {
     // @ts-ignore
-    const response = yield call(getRoot, action.payload);
+    const response = yield call(getRoot, action.payload)
+
     yield put(fetchRootSuccess(response));
   } catch (errors) {
-    console.log(errors);
     yield put(fetchRootFailure(errors));
+  }
+}
+
+export function* fetchSingleItemSaga(action: Action) {
+  try {
+    // @ts-ignore
+    const response = yield call(getRoot, action.payload)
+
+    yield put(fetchSingleItemSuccess(response));
+  } catch (errors) {
+    yield put(fetchSingleItemFailure(errors));
   }
 }

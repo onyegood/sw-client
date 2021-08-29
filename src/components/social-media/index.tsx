@@ -1,43 +1,16 @@
 import { Col } from 'reactstrap'
+import { ISocialMedia } from '../../models/ISocialMedia'
+import { Kids } from '../../assets'
 import { Link } from 'react-router-dom'
 import React from 'react'
-import { SocialMediaObject } from '../../interfaces'
-
-import { Facebook, Instergram, Kids, Twitter, Youtube } from '../../assets'
-
-const socialMedia = [
-  {
-    id: 1,
-    name: 'Facebook',
-    icon: Facebook,
-    url: '#'
-  },
-  {
-    id: 2,
-    name: 'Instergram',
-    icon: Instergram,
-    url: '#'
-  },
-  {
-    id: 3,
-    name: 'Twitter',
-    icon: Twitter,
-    url: '#'
-  },
-  {
-    id: 4,
-    name: 'Youtube',
-    icon: Youtube,
-    url: '#'
-  }
-]
+import { socialMedia } from '../../static-data'
 
 const SocialMediaLinks = () => {
   return (
     <Col xs='4' className='social-media-links'>
       <ul>
-        {socialMedia.map((item: SocialMediaObject) => (
-          <li key={item.id}>
+        {socialMedia.map((item: ISocialMedia) => (
+          <li key={item.id} data-testid={item.name}>
             <Link to={item.url}>
               <img src={item.icon} alt={item.name} />
             </Link>

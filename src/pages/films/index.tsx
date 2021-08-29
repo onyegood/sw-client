@@ -37,7 +37,7 @@ const FilmsPage = () => {
           <Row className='mt-5'>
             {filtered.map(
               (item: any, index: number) => (
-                <CardComponent key={index + 1} name={item.title} />
+                <CardComponent key={index + 1} name={item.title} url={item.url} />
               )
             )}
           </Row>

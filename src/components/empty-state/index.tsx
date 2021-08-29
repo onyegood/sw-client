@@ -15,9 +15,9 @@ const EmptyStateContainer = styled(Container) `
 const EmptyStateComponent: React.FC<Props> = ({ text }) => {
   return (
     <EmptyStateContainer>
-      <Row>
+      <Row data-testid="empty-state-wrapper">
         <Col md="6" className="mx-auto">
-          <h1>{text ? text : 'No data found'}</h1>
+          <h1 data-testid="empty-state-text">{text ? text : 'No data found'}</h1>
         </Col>
       </Row>
     </EmptyStateContainer>

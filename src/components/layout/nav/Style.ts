@@ -1,9 +1,9 @@
-import { Container } from "reactstrap";
 import { colors } from "../../../theme/colors";
 import styled from "styled-components";
 
-export const NavContainer = styled(Container)`
+export const NavContainer = styled.div`
   padding: 20px 0;
+  width: 100%;
   img {
     width: 203px;
     height: 88px;
@@ -99,7 +99,7 @@ export const NavContainer = styled(Container)`
     border-bottom: 1px solid ${colors.border};
     ul {
       li {
-        padding: 4px 32px;
+        padding: 4px 38px;
         display: table-cell;
         width: auto;
         margin: 0;

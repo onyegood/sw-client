@@ -1,34 +1,39 @@
-import { fetchRootRequest, fetchRootsRequest } from "../redux/actions";
+import { IRootState } from '../interfaces';
+import { useEffect } from 'react';
+
+import { fetchRootRequest, fetchRootsRequest, fetchSingleItemRequest } from "../redux/actions";
 import { getCookie, setCookie } from "../helpers/storage";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from 'react';
 
-export const useFetchData = ({ path = '' }) => {
+export const useFetchData = ({ path = '', page = '' }) => {
   const dispatch = useDispatch();
-  const roots = useSelector((state: any) => state?.roots);
-  const { payload, root, isLoading } = roots;
+  const payload = useSelector((state: IRootState) => state?.roots);
+  const { roots, root, detail, isLoading } = payload;
   const links = getCookie('links');
-  const [linkPayload, setPayload] = useState([])
 
   useEffect(() => {
-    if (payload) {
-      const keys = Object.keys(payload || {});
-      setCookie("links", keys);
-    }
-    // @ts-ignore
     if (!links) {
       dispatch(fetchRootsRequest())
     }
-    setPayload(links ? JSON.parse(links) : []);
+  }, [dispatch, links]);
 
-  }, [dispatch, payload, links, setPayload]);
+  useEffect(() => {
+    if (roots && roots['films']) {
+      const keys = Object.keys(roots || {});
+      setCookie("links", keys);
+    }
+    
+  }, [roots, links]);
 
   useEffect(() => {
     if (path) {
-      dispatch(fetchRootRequest(path))
+      if (page) {
+        dispatch(fetchSingleItemRequest(path))
+      }else{
+        dispatch(fetchRootRequest(path))
+      }
     }
-  }, [dispatch, path]);
+  }, [dispatch, path, page]);
 
-  return { linkPayload, payload, root, isLoading };
+  return { roots, root, detail, isLoading };
 };
-

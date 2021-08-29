@@ -11,15 +11,16 @@ interface Props {
 }
 const BigSearchComponent = ({ name, value, page, onClick, onChange }: Props) => (
   <BigSearchContainer>
-    <div className='search-wrapper'>
+    <div className='search-wrapper' data-testid="search-wrapper">
       <input
         name={name}
         type='text'
         placeholder={`SEARCH ${page.toUpperCase()}`}
         value={value}
         onChange={onChange}
+        data-testid="search-input"
       />
-      <Button onClick={onClick}>SEARCH</Button>
+      <Button onClick={onClick} data-testid="search-button">SEARCH</Button>
     </div>
   </BigSearchContainer>
 )
