@@ -1,5 +1,4 @@
 import { BigSearchContainer } from './style'
-import { Button } from 'reactstrap'
 import React from 'react'
 
 interface Props {

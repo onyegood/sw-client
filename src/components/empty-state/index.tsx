@@ -23,7 +23,7 @@ const EmptyStateComponent: React.FC<Props> = ({ text }) => {
     <EmptyStateContainer>
       <Row data-testid="empty-state-wrapper">
         <Col md="6" className="mx-auto">
-          <div className="f-60">😭</div>
+          <span className="f-60" role="img" aria-label="emoji">😭</span>
           <p className='f-30' data-testid="empty-state-text">{text ? text : 'Uh-oh! No result found.'}</p>
         </Col>
       </Row>
