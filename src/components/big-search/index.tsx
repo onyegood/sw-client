@@ -6,12 +6,11 @@ interface Props {
   name: string;
   value: string;
   page: string;
-  onClick: () => void;
   onChange: (e: any) => void;
 }
-const BigSearchComponent = ({ name, value, page, onClick, onChange }: Props) => (
+const BigSearchComponent = ({ name, value, page, onChange }: Props) => (
   <BigSearchContainer>
-    <div className='search-wrapper' data-testid="search-wrapper">
+    <div className='search-wrapper mt-4' data-testid="search-wrapper">
       <input
         name={name}
         type='text'
@@ -20,7 +19,7 @@ const BigSearchComponent = ({ name, value, page, onClick, onChange }: Props) => 
         onChange={onChange}
         data-testid="search-input"
       />
-      <Button onClick={onClick} data-testid="search-button">SEARCH</Button>
+      {/* <Button onClick={onClick} data-testid="search-button">SEARCH</Button> */}
     </div>
   </BigSearchContainer>
 )

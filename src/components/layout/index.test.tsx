@@ -1,5 +1,4 @@
 import AppLayout from '.';
-import NavComponent from './nav';
 import { RouteNames } from '../../static-data/route-names';
 import { getRoots } from '../../api';
 import {render} from '../../test-utils'
@@ -19,42 +18,32 @@ const mockFetchRoots = () =>
 describe('<AppLayout/>', () => {
   beforeEach(() => mockFetchRoots());
 
-  it('should render loading spinner on initial render', () => {
+  it('should render layout component without crashing', () => {
     render(
       <AppLayout>
         <p>Welcome to Star wars planet</p>
       </AppLayout>,
     );
 
-    // const loading = screen.getByTestId('loading-state');
-    // console.log(screen)
-    // expect(loading).toBeInTheDocument();
+    const logo = screen.getByTestId('logo');
+    const facebookIcon = screen.getByTestId('Facebook');
+    const instergramIcon = screen.getByTestId('Instergram');
+    const twitterIcon = screen.getByTestId('Twitter');
+    const youtubeIcon = screen.getByTestId('Youtube');
+
+    // Ensure that star wars logo is visible
+    expect(logo).toBeVisible();
+
+    // Ensure that Facebook icon is visible
+    expect(facebookIcon).toBeVisible()
+        
+    // Ensure that instergram icon is visible
+    expect(instergramIcon).toBeVisible()
+    
+    // Ensure that twitter icon is visible
+    expect(twitterIcon).toBeVisible()
+
+    // Ensure that youtube icon is visible
+    expect(youtubeIcon).toBeVisible()
   });
-
-  // it('should render the root resources', async () => {
-  //   const { container } = render(
-  //     <AppLayout>
-  //       <p>Welcome to Star wars planet</p>
-  //     </AppLayout>,
-  //   );
-
-  //   const navNode = await screen.findByText(/PEOPLE/);
-  //   const navItems = container.querySelectorAll('.nav-item');
-
-  //   expect(navNode).toBeTruthy();
-  //   expect(navItems.length).toBe(6);
-  // });
-
-  // it('should show error message when there is an error', async () => {
-  //   mockedRoots.mockImplementation(() => Promise.reject('error'));
-
-  //   render(
-  //     <AppLayout>
-  //       <p>Welcome to Star wars planet</p>
-  //     </AppLayout>,
-  //   );
-
-  //   const errorMessage = await screen.findByText(/No resource here/);
-  //   expect(errorMessage).toBeInTheDocument();
-  // });
 });

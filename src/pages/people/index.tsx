@@ -17,8 +17,6 @@ const PeoplePage = () => {
     return <LoadingComponent />
   }
 
-  const handleFilterData =()=> {}
-
   const filtered = filteredData('name', state.name, root?.results);
 
   return (
@@ -27,12 +25,11 @@ const PeoplePage = () => {
         name='search'
         value={state.name}
         page='people'
-        onClick={() => handleFilterData()}
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setState({name: e.target.value})}
       />
       {filtered && filtered.length > 0 ? (
         <CardsContainer>
-          <Row className='mt-5'>
+          <Row className='mt-5' data-testid="people">
             {filtered.map((item: any, index: number) => (
               <CardComponent key={index + 1} name={item.name} url={item.url} />
             ))}

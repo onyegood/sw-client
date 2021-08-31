@@ -20,9 +20,8 @@ import React, { Suspense } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './styles/mediaQuery.css'
 // import theme from './theme'
-
-
 
 const GlobalStyle = createGlobalStyle`
     *, body {

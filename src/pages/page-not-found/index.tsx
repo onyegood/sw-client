@@ -10,7 +10,7 @@ const PageNotyFoundContainer = styled(Container) `
 
 const PageNotFound: React.FC = () => {
   return <PageNotyFoundContainer>
-      <Row>
+      <Row data-testid="page-not-fount-container">
         <Col md="6" className="mx-auto">
           <h1 data-testid="page-not-fount-text">Ooh! page not found</h1>
         </Col>

@@ -138,4 +138,5 @@ export const NavContainer = styled.div`
       }
     }
   }
+  .display-none {}
 `

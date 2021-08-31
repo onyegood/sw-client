@@ -17,8 +17,6 @@ const FilmsPage = () => {
     return <LoadingComponent />
   }
 
-  const handleFilterData =()=> {}
-
   const filtered = filteredData('title', state.name, root?.results);
   
   return (
@@ -27,7 +25,6 @@ const FilmsPage = () => {
         name='search'
         value={state.name}
         page='fielm'
-        onClick={() => handleFilterData()}
         onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
           setState({ name: e.target.value })
         }

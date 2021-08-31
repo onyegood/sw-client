@@ -1,8 +1,9 @@
 import CardComponent from '.';
 import {render} from '../../test-utils'
-import { screen } from '@testing-library/react';
 
 import * as React from 'react';
+
+import { fireEvent, screen } from '@testing-library/react';
 
 describe('<CardComponent/>', () => {
   it('should render card component without crash', () => {
@@ -15,15 +16,23 @@ describe('<CardComponent/>', () => {
     const cardTitle = getByTestId('card-title');
     const cardContainer = getByTestId('card-container');
     const placeholder = getByTestId('card-image-placeholder');
+
+    // Insure that card container is in the dom
+    expect(cardContainer).toBeInTheDocument();
     
-
-
+    // Simulate that card container was clicked
+    fireEvent.click(cardContainer);
+    
+    // Insure that card title is in the dom
     expect(cardTitle).toBeInTheDocument();
+
+    // Insure that card title has the text
     expect(cardTitle).toHaveTextContent('Luke Skywalker')
 
-    expect(cardContainer).toBeInTheDocument();
-
+    // Insure that image placeholder is in the dom
     expect(placeholder).toBeInTheDocument();
+
+    // Insure that image placeholder has the text
     expect(placeholder).toHaveTextContent("Image Placeholder")
   });
 });
