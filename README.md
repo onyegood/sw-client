@@ -41,6 +41,10 @@ As this is a simple consume website for the Star Wars API - there are a few thin
 
 ## Outstanding 
 - Test coverage is currently on 70.38% and the target is 100%.
+- Code documentation needs improvement
+
+## Good to have
+- I whould have loved to add dark/light mode functionalities to improve accessibility.
 
 ## Brownie points
 
