@@ -14,17 +14,14 @@ import { IRootState } from '../../interfaces'
 const FavoritesPage = () => {
   const {isLoading} = useSelector((state: IRootState) => state.roots)
   const [state, setState] = useState({ name: '' })
-  const key = 'name' || 'title';
-  const { saveFavorite, isFavorite, favorites } = useFavorites(key)
+  const { saveFavorite, isFavorite, favorites } = useFavorites('name')
   
 
   if (isLoading && !favorites) {
     return <LoadingComponent />
   }
 
-  const filtered = filteredData('title', state.name, favorites)
-
-  console.log('favorites = == ', favorites);
+  const filtered = filteredData('name', state.name, favorites)
 
   return (
     <>
@@ -36,15 +33,15 @@ const FavoritesPage = () => {
           setState({ name: e.target.value })
         }
       />
-      {favorites && favorites.length > 0 ? (
+      {filtered && filtered.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5' data-testid='favorites'>
-            {favorites.map((item: any, index: number) => (
+            {filtered.map((item: any, index: number) => (
               <CardComponent
                 key={index + 1}
-                name={item?.name || item?.title}
+                name={item?.name}
                 url={item.url}
-                isFavorite={isFavorite(item?.name ? 'name' : 'title', item?.name || item?.title)}
+                isFavorite={isFavorite('name', item?.name)}
                 handleAddToFavorite={() => saveFavorite(item)}
               />
             ))}

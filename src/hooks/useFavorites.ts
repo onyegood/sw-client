@@ -11,9 +11,14 @@ import { useEffect, useState } from 'react'
     const [name, setName] = useState("");
 
     const saveFavorite = (item: any) => {
+      const payload = {
+        ...item,
+        name: item?.name || item?.title
+      }
       const title = item?.name || item?.title
       setName(title);
-      setFavorites(favorites.concat(item));
+
+      setFavorites(favorites.concat(payload));
     }
 
     const isFavorite = (key: string, name: string) => {
@@ -30,7 +35,7 @@ import { useEffect, useState } from 'react'
           localStorage.setItem("favorites", JSON.stringify(favorites));
         }
       }else{
-        // localStorage.setItem("favorites", JSON.stringify(favorites));
+        localStorage.setItem("favorites", JSON.stringify(favorites));
       }
     }, [favorites, name, key, storedJSON]);
     
