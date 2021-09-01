@@ -7,11 +7,12 @@ interface Props {
   width?: string;
   fill?: string;
   className?: string;
+  onClick?: () => any;
 }
 
-const Icon = ({id, height, bgColor, width, fill, className}: Props) => {
+const Icon = ({id, height, bgColor, width, fill, className, onClick}: Props) => {
   return (
-    <svg width={width} height={height} className={className}>
+    <svg width={width} height={height} className={className} onClick={onClick}>
       <use
         xlinkHref={`${process.env.PUBLIC_URL +
           "/svgs/icon-sprite.svg"}#${id}`}

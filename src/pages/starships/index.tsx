@@ -8,10 +8,12 @@ import { filteredData } from '../../helpers/searchHelper'
 import { useFetchData } from '../../hooks/useFetchRoot'
 
 import React, { useState } from 'react'
+import useFavorites from '../../hooks/useFavorites'
 
 const StarshipsPage = () => {
   const { root, isLoading } = useFetchData({ path: 'starships' })
   const [state, setState] = useState({ name: '' })
+  const { saveFavorite, isFavorite } = useFavorites('name')
   
   if (isLoading && !root) {
     return <LoadingComponent />
@@ -37,6 +39,8 @@ const StarshipsPage = () => {
                 key={item.name}
                 name={item.name}
                 url={item.url}
+                isFavorite={isFavorite('name', item.name)}
+                handleAddToFavorite={() => saveFavorite(item)}
               />
             ))}
           </Row>

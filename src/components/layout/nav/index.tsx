@@ -1,6 +1,5 @@
 import AppLogo from '../../logo'
 import CustomNavItem from './CustomNavItem'
-import DarkModeControl from '../../dark-mode-button'
 import { Link } from 'react-router-dom'
 import { NavContainer } from './Style'
 import React from 'react'
@@ -8,24 +7,24 @@ import SocialMediaLinks from '../../social-media'
 import useStoredData from '../../../hooks/useStoredData'
 
 import { Col, Nav, Row } from 'reactstrap'
+import Icon from '../../icons'
 
 const NavComponent = () => {
   const { roots } = useStoredData()
 
   return (
     <NavContainer className='display-none'>
-      <Row >
+      <Row>
         <SocialMediaLinks />
 
         <Col xs='4' className='text-center'>
           <AppLogo />
         </Col>
         <Col xs='4' md={{ size: 2, offset: 2 }} className='text-right'>
-          <DarkModeControl />
-          <div className='text-right mt-1 auth'>
-            <Link to='#'>LOG IN</Link>
-            <span className='slash'> / / </span>
-            <Link to='#'>SIGN UP</Link>
+          <div className="mr-4 md-4 favorite">
+            <Link to='#'>
+              <Icon id='love-icon' width='20' height='20' /> Favorites
+            </Link>
           </div>
         </Col>
       </Row>

@@ -8,16 +8,18 @@ import { filteredData } from '../../helpers/searchHelper'
 import { useFetchData } from '../../hooks/useFetchRoot'
 
 import React, { useState } from 'react'
+import useFavorites from '../../hooks/useFavorites'
 
 const VehiclesPage = () => {
   const { root, isLoading } = useFetchData({ path: 'vehicles' })
   const [state, setState] = useState({ name: '' })
+  const { saveFavorite, isFavorite } = useFavorites('name')
 
   if (isLoading && !root) {
     return <LoadingComponent />
   }
 
-  const filtered = filteredData('name', state.name, root?.results);
+  const filtered = filteredData('name', state.name, root?.results)
 
   return (
     <>
@@ -32,11 +34,15 @@ const VehiclesPage = () => {
       {filtered && filtered.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {filtered.map(
-              (item: any) => (
-                <CardComponent key={item.name} name={item.name} url={item.url} />
-              )
-            )}
+            {filtered.map((item: any) => (
+              <CardComponent
+                key={item.name}
+                name={item.name}
+                url={item.url}
+                isFavorite={isFavorite('name', item.name)}
+                handleAddToFavorite={() => saveFavorite(item)}
+              />
+            ))}
           </Row>
         </CardsContainer>
       ) : (

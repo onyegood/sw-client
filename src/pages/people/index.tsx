@@ -8,16 +8,18 @@ import { filteredData } from '../../helpers/searchHelper'
 import { useFetchData } from '../../hooks/useFetchRoot'
 
 import React, { useState } from 'react'
+import useFavorites from '../../hooks/useFavorites'
 
 const PeoplePage = () => {
   const { root, isLoading } = useFetchData({ path: 'people' })
-  const [state, setState] = useState({ name: ''});
+  const [state, setState] = useState({ name: '' })
+  const { saveFavorite, isFavorite } = useFavorites('name')
 
   if (isLoading && !root) {
     return <LoadingComponent />
   }
 
-  const filtered = filteredData('name', state.name, root?.results);
+  const filtered = filteredData('name', state.name, root?.results)
 
   return (
     <>
@@ -25,13 +27,21 @@ const PeoplePage = () => {
         name='search'
         value={state.name}
         page='people'
-        onChange={(e: React.ChangeEvent<HTMLInputElement>): void => setState({name: e.target.value})}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+          setState({ name: e.target.value })
+        }
       />
       {filtered && filtered.length > 0 ? (
         <CardsContainer>
-          <Row className='mt-5' data-testid="people">
+          <Row className='mt-5' data-testid='people'>
             {filtered.map((item: any, index: number) => (
-              <CardComponent key={index + 1} name={item.name} url={item.url} />
+              <CardComponent
+                key={index + 1}
+                name={item.name}
+                url={item.url}
+                isFavorite={isFavorite('name', item.name)}
+                handleAddToFavorite={() => saveFavorite(item)}
+              />
             ))}
           </Row>
         </CardsContainer>

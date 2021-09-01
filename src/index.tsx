@@ -1,5 +1,4 @@
 import App from './components/App'
-import { BG } from './assets'
 import DetailsPage from './pages/details'
 import FilmsPage from './pages/films'
 import LoadingComponent from './components/loading'
@@ -12,8 +11,6 @@ import SpeciesPage from './pages/species'
 import StarshipsPage from './pages/starships'
 // import { ThemeProvider } from 'theme-ui'
 import VehiclesPage from './pages/vehicles'
-import { colors } from './theme/colors'
-import { createGlobalStyle } from 'styled-components'
 import { store } from './redux/store'
 
 import React, { Suspense } from 'react'
@@ -21,30 +18,10 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/mediaQuery.css'
+import { GlobalStyle } from './styles'
 // import theme from './theme'
 
-const GlobalStyle = createGlobalStyle`
-    *, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Roboto', sans-serif;
-    }
 
-    body {
-      background-image: url(${BG});
-      background-color: ${colors.primary} !important;
-      background-size: auto;
-      background-blend-mode: overlay;
-    }
-
-    a,
-    p {
-      font-family: 'Roboto', sans-serif;
-    }
-    .card{
-      border: 0 !important;
-    }
-`
 
 const routes = (
     <Provider store={store}>

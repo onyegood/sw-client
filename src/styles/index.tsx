@@ -1,17 +1,20 @@
-import { Container } from "reactstrap";
-import { IconSprite } from "../assets";
-import { colors } from "../theme/colors";
-import styled from "styled-components";
+import { Container } from 'reactstrap'
+import { BG, IconSprite } from '../assets'
+import { colors } from '../theme/colors'
+import styled, { createGlobalStyle } from 'styled-components'
 
-export const CardsContainer = styled(Container)`
+const CardsContainer = styled(Container)`
   .thumbnail-container {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     cursor: pointer;
     height: 150px;
     background-color: ${colors.primaryLight};
-    text-align: center;
-    h1{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 10px;
+    h1 {
       padding-top: 20px;
       color: #3030307a;
     }
@@ -38,16 +41,16 @@ export const CardsContainer = styled(Container)`
     width: 100%;
     margin-left: -4px;
     h5 {
-      font-size: 1em;
+      font-size: 1.3em;
       line-height: 1.15em;
       margin-top: 5px;
       text-transform: uppercase;
     }
     p {
-      color: ${colors.red};
-      cursor: pointer;
-      font-size: 0.75rem;
-      text-transform: uppercase;
+      color: ${colors.black};
+      /* cursor: pointer; */
+      /* font-size: 0.75rem;
+      text-transform: uppercase; */
     }
     .play-container {
       display: flex;
@@ -64,5 +67,39 @@ export const CardsContainer = styled(Container)`
       width: 1.7em;
       height: 1.7em;
     }
-    
+    .other-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      p {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
 `
+
+const GlobalStyle = createGlobalStyle`
+    *, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-image: url(${BG});
+      background-color: ${colors.primary} !important;
+      background-size: auto;
+      background-blend-mode: overlay;
+    }
+
+    a,
+    p {
+      font-family: 'Roboto', sans-serif;
+    }
+    .card{
+      border: 0 !important;
+    }
+`
+
+export { CardsContainer, GlobalStyle }

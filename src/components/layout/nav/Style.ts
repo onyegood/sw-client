@@ -139,4 +139,12 @@ export const NavContainer = styled.div`
     }
   }
   .display-none {}
+  .favorite{
+    a{
+      color: ${colors.link};
+      :hover{
+        text-decoration: none;
+      }
+    }
+  }
 `

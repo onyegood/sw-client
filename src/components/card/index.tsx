@@ -2,12 +2,16 @@ import React from 'react'
 import { useHistory } from 'react-router'
 
 import { Card, CardBody, Col } from 'reactstrap'
+import Icon from '../icons';
+
 
 interface Props {
   name?: string,
-  url: string
+  url: string,
+  handleAddToFavorite?: () => void,
+  isFavorite?: () => boolean
 }
-const CardComponent = ({ name, url }: Props) => {
+const CardComponent = ({ name, url, handleAddToFavorite, isFavorite }: Props) => {
   const history = useHistory();
   const singlItemUrl = url.split('/api')[1]
 
@@ -16,14 +20,32 @@ const CardComponent = ({ name, url }: Props) => {
       <Card className='mb-4'>
         <CardBody className='p-0'>
           <div className='thumbnail-container'>
-            <h1 data-testid="card-image-placeholder">Image Placeholder</h1>
+            <Icon 
+              id={isFavorite ? "love-icon" : "love-outline-icon"}
+              height="30" 
+              width="30" 
+              className="text-white"
+              // @ts-ignore
+              onClick={(e: void) => e.stopPropagation(handleAddToFavorite())} 
+            />
           </div>
           <div className='card-content-container'>
             <h5 data-testid="card-title">{name}</h5>
-            <div className='play-container'>
-              {/* <span className="play" /> */}
-              <p>Video</p>
+            <div className="other-info">
+              <span>
+                <p className="small">Gender</p>
+                <p>Male</p>
+              </span>
+
+              <span>
+                <p className="small">Birth Year</p>
+                <p>20/03/2019</p>
+              </span>
             </div>
+            {/* <div className='play-container'>
+              <span className="play" />
+              <p>Video</p>
+            </div> */}
           </div>
         </CardBody>
       </Card>
