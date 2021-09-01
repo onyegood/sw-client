@@ -30,7 +30,7 @@ import { useEffect, useState } from 'react'
           localStorage.setItem("favorites", JSON.stringify(favorites));
         }
       }else{
-        localStorage.setItem("favorites", JSON.stringify(favorites));
+        // localStorage.setItem("favorites", JSON.stringify(favorites));
       }
     }, [favorites, name, key, storedJSON]);
     

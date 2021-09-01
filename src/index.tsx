@@ -19,6 +19,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles/mediaQuery.css'
 import { GlobalStyle } from './styles'
+import FavoritesPage from './pages/favorites'
 // import theme from './theme'
 
 
@@ -37,6 +38,7 @@ const routes = (
               <Route path='/vehicles' exact component={VehiclesPage} />
               <Route path='/starships' exact component={StarshipsPage} />
               <Route path='/more/:tab/:id' exact component={DetailsPage} />
+              <Route path='/favorites' exact component={FavoritesPage} />
               <Route path='*/*' component={PageNotFound} />
             </Switch>
           </Suspense>

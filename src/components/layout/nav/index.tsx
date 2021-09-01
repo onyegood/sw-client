@@ -22,7 +22,7 @@ const NavComponent = () => {
         </Col>
         <Col xs='4' md={{ size: 2, offset: 2 }} className='text-right'>
           <div className="mr-4 md-4 favorite">
-            <Link to='#'>
+            <Link to='/favorites'>
               <Icon id='love-icon' width='20' height='20' /> Favorites
             </Link>
           </div>
