@@ -15,7 +15,6 @@ describe('<CardComponent/>', () => {
 
     const cardTitle = getByTestId('card-title');
     const cardContainer = getByTestId('card-container');
-    const placeholder = getByTestId('card-image-placeholder');
 
     // Insure that card container is in the dom
     expect(cardContainer).toBeInTheDocument();
@@ -28,11 +27,5 @@ describe('<CardComponent/>', () => {
 
     // Insure that card title has the text
     expect(cardTitle).toHaveTextContent('Luke Skywalker')
-
-    // Insure that image placeholder is in the dom
-    expect(placeholder).toBeInTheDocument();
-
-    // Insure that image placeholder has the text
-    expect(placeholder).toHaveTextContent("Image Placeholder")
   });
 });

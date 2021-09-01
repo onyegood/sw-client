@@ -1,0 +1,29 @@
+export interface IGeneric {
+  title?: string,
+  opening_crawl?: string,
+  name: string;
+  height: string;
+  mass: string;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: string;
+  gender: string;
+  homeworld: string;
+  films: string[];
+  species: string[];
+  vehicles: string[];
+  starships: string[];
+  created: string;
+  edited: string;
+  url: string;
+  diameter?: string;
+  population?: string;
+  director?: string;
+  episode_id?: number;
+  producer?: string;
+  classification?: string;
+  average_height?: string;
+  cargo_capacity?: string;
+  model?: string;
+}

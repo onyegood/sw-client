@@ -9,6 +9,7 @@ import { useFetchData } from '../../hooks/useFetchRoot'
 
 import React, { useState } from 'react'
 import useFavorites from '../../hooks/useFavorites'
+import { IGeneric } from '../../models/IGeneric'
 
 const PlanetsPage = () => {
   const { root, isLoading } = useFetchData({ path: 'planets' })
@@ -34,11 +35,15 @@ const PlanetsPage = () => {
       {filtered && filtered.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {filtered.map((item: any, index: number) => (
+            {filtered.map((item: IGeneric, index: number) => (
               <CardComponent
                 key={index + 1}
                 name={item.name}
                 url={item.url}
+                labelOne="Diameter"
+                valueOne={item.diameter}
+                labelTwo="Population"
+                valueTwo={item.population}
                 isFavorite={isFavorite('name', item.name)}
                 handleAddToFavorite={() => saveFavorite(item)}
               />

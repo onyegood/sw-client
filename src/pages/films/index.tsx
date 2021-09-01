@@ -9,6 +9,8 @@ import { useFetchData } from '../../hooks/useFetchRoot'
 
 import React, { useState } from 'react'
 import useFavorites from '../../hooks/useFavorites'
+import { IGeneric } from '../../models/IGeneric'
+import { capitalize } from '../../helpers/capsInitial'
 
 const FilmsPage = () => {
   const { root, isLoading } = useFetchData({ path: 'films' })
@@ -34,11 +36,15 @@ const FilmsPage = () => {
       {filtered && filtered.length > 0 ? (
         <CardsContainer>
           <Row className='mt-5'>
-            {filtered.map((item: any, index: number) => (
+            {filtered.map((item: IGeneric, index: number) => (
               <CardComponent
                 key={index + 1}
                 name={item.title}
                 url={item.url}
+                labelOne="Producer"
+                valueOne={capitalize(item.producer)}
+                labelTwo="Episode"
+                valueTwo={item.episode_id}
                 isFavorite={isFavorite('title', item.title)}
                 handleAddToFavorite={() => saveFavorite(item)}
               />

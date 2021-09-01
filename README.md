@@ -20,9 +20,9 @@ yarn test
 As this is a simple consume website for the Star Wars API - there are a few things a user is probably going to want to do.
 
 1. View all root types, and the resources inside them
-2. Click though and see a detailed breakdown of the information on each resource type
-3. Easily access other linked resources
-4. Favorite a resource type - this must persist after page refresh however it doesn't need to be stored on a server
+2. Click though and see a detailed breakdown of the information on each resource type 
+3. Easily access other linked resources 
+4. Favorite a resource type - this must persist after page refresh however it doesn't need to be stored on a server 
 
 ## Requirements
 

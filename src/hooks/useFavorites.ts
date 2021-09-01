@@ -15,13 +15,13 @@ import { useEffect, useState } from 'react'
         ...item,
         name: item?.name || item?.title
       }
-      const title = item?.name || item?.title
-      setName(title);
+      
+      setName(payload.name);
 
       setFavorites(favorites.concat(payload));
     }
 
-    const isFavorite = (key: string, name: string) => {
+    const isFavorite = (key: string, name?: string) => {
       return favorites.map((x: any) => x[key]).includes(name)
     }
 

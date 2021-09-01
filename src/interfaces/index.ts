@@ -1,3 +1,4 @@
+import { IGeneric } from "../models/IGeneric";
 import { IPerson } from "../models/IPerson";
 import { IRoots } from "../models/IRoots";
 
@@ -30,7 +31,7 @@ export interface IRootState {
 			previous: null, 
 			results: IPerson[]
 		},
-		detail: IPerson,
+		detail: IGeneric,
 		roots: IRoots
 	}
 }

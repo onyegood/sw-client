@@ -9,6 +9,7 @@ import { useFetchData } from '../../hooks/useFetchRoot'
 
 import React, { useState } from 'react'
 import useFavorites from '../../hooks/useFavorites'
+import { capitalize } from '../../helpers/capsInitial'
 
 const VehiclesPage = () => {
   const { root, isLoading } = useFetchData({ path: 'vehicles' })
@@ -39,10 +40,15 @@ const VehiclesPage = () => {
                 key={item.name}
                 name={item.name}
                 url={item.url}
+                labelOne="Model"
+                valueOne={capitalize(item.model)}
+                labelTwo="Cargo capacity"
+                valueTwo={item.cargo_capacity}
                 isFavorite={isFavorite('name', item.name)}
                 handleAddToFavorite={() => saveFavorite(item)}
               />
             ))}
+            
           </Row>
         </CardsContainer>
       ) : (

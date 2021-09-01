@@ -25,14 +25,14 @@ describe('<AppLayout/>', () => {
       </AppLayout>,
     );
 
-    const logo = screen.getByTestId('logo');
+    const logo = screen.getAllByTestId('logo');
     const facebookIcon = screen.getByTestId('Facebook');
     const instergramIcon = screen.getByTestId('Instergram');
     const twitterIcon = screen.getByTestId('Twitter');
     const youtubeIcon = screen.getByTestId('Youtube');
 
     // Ensure that star wars logo is visible
-    expect(logo).toBeVisible();
+    expect(logo.length).toBe(2);
 
     // Ensure that Facebook icon is visible
     expect(facebookIcon).toBeVisible()

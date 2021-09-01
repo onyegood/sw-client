@@ -9,6 +9,7 @@ import { useFetchData } from '../../hooks/useFetchRoot'
 
 import React, { useState } from 'react'
 import useFavorites from '../../hooks/useFavorites'
+import { capitalize } from '../../helpers/capsInitial'
 
 const SpeciesPage = () => {
   const { root, isLoading } = useFetchData({ path: 'species' })
@@ -39,6 +40,10 @@ const SpeciesPage = () => {
                 key={index + 1}
                 name={item.name}
                 url={item.url}
+                labelOne="Classification"
+                valueOne={capitalize(item.classification)}
+                labelTwo="Average height"
+                valueTwo={item.average_height}
                 isFavorite={isFavorite('name', item.name)}
                 handleAddToFavorite={() => saveFavorite(item)}
               />
