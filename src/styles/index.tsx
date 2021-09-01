@@ -1,7 +1,7 @@
-import { Container } from 'reactstrap'
-import { BG, IconSprite } from '../assets'
-import { colors } from '../theme/colors'
-import styled, { createGlobalStyle } from 'styled-components'
+import { Container } from 'reactstrap';
+import { bg, iconSprite } from '../assets';
+import { colors } from '../theme/colors';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const CardsContainer = styled(Container)`
   .thumbnail-container {
@@ -62,7 +62,7 @@ const CardsContainer = styled(Container)`
       display: inline-block;
       margin: -1.7em -0.2em -0.5em -0.5em;
       background-repeat: no-repeat;
-      background-image: url(${IconSprite});
+      background-image: url(${iconSprite});
       background-size: 1000% 200%;
       width: 1.7em;
       height: 1.7em;
@@ -77,7 +77,7 @@ const CardsContainer = styled(Container)`
       }
     }
   }
-`
+`;
 
 const GlobalStyle = createGlobalStyle`
     *, body {
@@ -87,7 +87,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     body {
-      background-image: url(${BG});
+      background-image: url(${bg});
       background-color: ${colors.primary} !important;
       background-size: auto;
       background-blend-mode: overlay;
@@ -100,6 +100,6 @@ const GlobalStyle = createGlobalStyle`
     .card{
       border: 0 !important;
     }
-`
+`;
 
-export { CardsContainer, GlobalStyle }
+export { CardsContainer, GlobalStyle };

@@ -1,1 +1,1 @@
-export * from './rootsAction'
+export * from './rootsAction';

@@ -1,4 +1,4 @@
-import appRootSaga from "./sagas";
+import appRootSaga from './sagas';
 import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 
@@ -14,7 +14,7 @@ const enhanceCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Create redux store
 export const store = createStore(
 	rootReducer,
-	enhanceCompose(applyMiddleware(sagaMiddleware))
+	enhanceCompose(applyMiddleware(sagaMiddleware)),
 );
 
 // Run redux sage

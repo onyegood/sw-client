@@ -1,5 +1,5 @@
-import { colors } from "../../../theme/colors";
-import styled from "styled-components";
+import { colors } from '../../../theme/colors';
+import styled from 'styled-components';
 
 export const NavContainer = styled.div`
   padding: 20px 0;
@@ -147,4 +147,4 @@ export const NavContainer = styled.div`
       }
     }
   }
-`
+`;

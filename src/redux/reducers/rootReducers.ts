@@ -10,7 +10,7 @@ import {
 	FETCH_ROOT_SUCCESS,
 	FETCH_SINGLE_ITEM_FAILURE,
 	FETCH_SINGLE_ITEM_REQUEST,
-	FETCH_SINGLE_ITEM_SUCCESS
+	FETCH_SINGLE_ITEM_SUCCESS,
 } from '../types';
 
 export default (state = initialState, action: AnyAction) => {
@@ -51,4 +51,4 @@ export default (state = initialState, action: AnyAction) => {
 		default:
 			return state;
 	}
-}
+};

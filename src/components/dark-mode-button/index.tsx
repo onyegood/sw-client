@@ -11,15 +11,17 @@ const DarkModeButton = styled.div`
   .cursor-pointer {
     cursor: pointer;
   }
-`
+`;
 
-const DarkModeControl = () => {
-  return (
-    <DarkModeButton>
-      <Icon id="sun-icon" height="30" width="30" className="cursor-pointer icon-color" />
-      {/* <Icon id="moon-icon" height="30" width="30" fill='icon-color' /> */}
-    </DarkModeButton>
-  );
-}
+const DarkModeControl = () => (
+	<DarkModeButton>
+		<Icon className="cursor-pointer icon-color"
+			height="30"
+			id="sun-icon"
+			width="30"
+		/>
+		{/* <Icon id="moon-icon" height="30" width="30" fill='icon-color' /> */}
+	</DarkModeButton>
+);
 
-export default DarkModeControl
+export default DarkModeControl;

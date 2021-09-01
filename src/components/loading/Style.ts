@@ -1,6 +1,6 @@
-import { Container } from "reactstrap";
-import { colors } from "../../theme/colors";
-import styled from "styled-components";
+import { Container } from 'reactstrap';
+import { colors } from '../../theme/colors';
+import styled from 'styled-components';
 
 export const LoadingContainer = styled(Container)`
   display: flex;
@@ -56,4 +56,4 @@ export const LoadingContainer = styled(Container)`
       filter: blur(30px);
     }
   }
-`
+`;

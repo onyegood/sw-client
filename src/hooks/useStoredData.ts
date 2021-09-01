@@ -5,19 +5,18 @@ import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 const useStoredData = () => {
-  const links = getCookie('links');
-  const [roots, setRoots] = useState<string[]>([]);
-  const {isLoading} = useSelector((state: IRootState) => state?.roots);
-  
-  useEffect(() => {
-    if (links) {
-      setRoots(links ? JSON.parse(links) : []);
-    }
-  }, [links, isLoading]);
+	const links = getCookie('links');
+	const [roots, setRoots] = useState<string[]>([]);
+	const { isLoading } = useSelector((state: IRootState) => state?.roots);
 
-  return {
-    roots
-  };
-}
+	useEffect(() => {
+		if (links)
+			setRoots(links ? JSON.parse(links) : []);
+	}, [links, isLoading]);
 
-export default useStoredData
+	return {
+		roots,
+	};
+};
+
+export default useStoredData;

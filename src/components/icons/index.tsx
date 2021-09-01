@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 interface Props {
   id: string;
@@ -7,27 +7,35 @@ interface Props {
   width?: string;
   fill?: string;
   className?: string;
-  onClick?: () => any;
+  onClick?: () => Function;
 }
 
-const Icon = ({id, height, bgColor, width, fill, className, onClick}: Props) => {
-  return (
-    <svg width={width} height={height} className={className} onClick={onClick}>
-      <use
-        xlinkHref={`${process.env.PUBLIC_URL +
-          "/svgs/icon-sprite.svg"}#${id}`}
-        style={{
-          fill: bgColor
-        }}
-        className={fill}
-      />
-    </svg>
-  )
-}
-
+const Icon = ({
+	id,
+	height,
+	bgColor,
+	width,
+	fill,
+	className,
+	onClick
+}: Props) => (
+	<svg className={className}
+		height={height}
+		onClick={onClick}
+		width={width}
+	>
+		<use
+			className={fill}
+			style={{
+				fill: bgColor,
+			}}
+			xlinkHref={`${`/svgs/icon-sprite.svg`}#${id}`}
+		/>
+	</svg>
+);
 
 Icon.defaultProps = {
-  bgColor: 'transparent'
-}
+	bgColor: 'transparent',
+};
 
 export default Icon;

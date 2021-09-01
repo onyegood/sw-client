@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
-import roots from "./rootReducers";
+import roots from './rootReducers';
 
 const rootReducer = combineReducers({
-	roots
+	roots,
 });
-
 
 export type RootState = ReturnType<typeof rootReducer>;
 

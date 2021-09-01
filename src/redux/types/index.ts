@@ -1,1 +1,1 @@
-export * from "./rootsType";
+export * from './rootsType';

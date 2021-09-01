@@ -26,4 +26,5 @@ export interface IGeneric {
   average_height?: string;
   cargo_capacity?: string;
   model?: string;
+  page?: string;
 }

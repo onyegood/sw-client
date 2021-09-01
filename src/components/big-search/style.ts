@@ -1,7 +1,7 @@
-import { Container } from "reactstrap";
-import { SearchIcon } from "../../assets";
-import { colors } from "../../theme/colors";
-import styled from "styled-components";
+import { Container } from 'reactstrap';
+import { searchIcon } from '../../assets';
+import { colors } from '../../theme/colors';
+import styled from 'styled-components';
 
 export const BigSearchContainer = styled(Container)`
   input {
@@ -25,7 +25,7 @@ export const BigSearchContainer = styled(Container)`
     right: 174px;
     background-color: ${colors.secondary};
     border: 1px solid ${colors.primaryLight};
-    background-image: url(${SearchIcon});
+    background-image: url(${searchIcon});
     padding: 7px 16px 10px 44px;
     font-size: 1.2em;
     text-indent: 0;
@@ -38,4 +38,4 @@ export const BigSearchContainer = styled(Container)`
     display: flex;
     align-items: center;
   }
-`
+`;

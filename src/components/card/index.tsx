@@ -11,8 +11,8 @@ interface Props {
   labelTwo?: string;
   valueOne?: string | number;
   valueTwo?: string | number;
-  handleAddToFavorite?: () => void;
-  isFavorite?: () => boolean
+  handleAddToFavorite?: () => any;
+  isFavorite?: () => boolean;
 }
 const CardComponent = ({
   name,
@@ -22,46 +22,42 @@ const CardComponent = ({
   labelOne,
   labelTwo,
   valueOne,
-  valueTwo
+  valueTwo,
 }: Props) => {
   const history = useHistory()
   const singlItemUrl = url.split('/api')[1]
 
   return (
     <Col
-      md='4'
+      data-testid="card-container"
+      md="4"
       onClick={() => history.push(`/more${singlItemUrl}`)}
-      data-testid='card-container'
     >
-      <Card className='mb-4'>
-        <CardBody className='p-0'>
-          <div className='thumbnail-container'>
+      <Card className="mb-4">
+        <CardBody className="p-0">
+          <div className="thumbnail-container">
             <Icon
+              className="text-white"
+              height="30"
               id={isFavorite ? 'love-icon' : 'love-outline-icon'}
-              height='30'
-              width='30'
-              className='text-white'
               // @ts-ignore
-              onClick={(e: void) => e.stopPropagation(handleAddToFavorite())}
+              onClick={(e: { stopPropagation: (arg0: any) => Function }) => e.stopPropagation(handleAddToFavorite())}
+              width="30"
             />
           </div>
-          <div className='card-content-container'>
-            <h5 data-testid='card-title'>{name}</h5>
-            <div className='other-info'>
+          <div className="card-content-container">
+            <h5 data-testid="card-title">{name}</h5>
+            <div className="other-info">
               <span>
-                <p className='small'>{labelOne}</p>
+                <p className="small">{labelOne}</p>
                 <p>{valueOne}</p>
               </span>
 
               <span>
-                <p className='small'>{labelTwo}</p>
+                <p className="small">{labelTwo}</p>
                 <p>{valueTwo}</p>
-              </span>
+							</span>
             </div>
-            {/* <div className='play-container'>
-              <span className="play" />
-              <p>Video</p>
-            </div> */}
           </div>
         </CardBody>
       </Card>

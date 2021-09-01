@@ -1,7 +1,7 @@
-import { NavItem } from 'reactstrap'
-import React from 'react'
+import { NavItem } from 'reactstrap';
+import React from 'react';
 
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
 
 interface Props {
   title: string
@@ -14,22 +14,22 @@ interface Props {
  */
 
 const CustomNavItem: React.FC<Props> = ({ title }) => {
-  const { pathname } = useLocation()
+	const { pathname } = useLocation();
 
-  return (
-    <NavItem data-testid="navitem">
-      <Link
-        to={`/${title}`}
-        className={pathname.includes(title) ? 'active' : ''}
-        data-testid={title}
-      >
-        <div className='link-container'>
-          {title.toUpperCase()}
-          <span />
-        </div>
-      </Link>
-    </NavItem>
-  )
-}
+	return (
+		<NavItem data-testid="navitem">
+			<Link
+				className={pathname.includes(title) ? 'active' : ''}
+				data-testid={title}
+				to={`/${title}`}
+			>
+				<div className="link-container">
+					{title.toUpperCase()}
+					<span />
+				</div>
+			</Link>
+		</NavItem>
+	);
+};
 
-export default CustomNavItem
+export default CustomNavItem;

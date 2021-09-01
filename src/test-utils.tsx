@@ -11,30 +11,30 @@ import rootReducer, { RootState } from '../src/redux/reducers';
 const sagaMiddleware = createSagaMiddleware();
 
 const render = (
-  ui: React.ReactElement,
-  {
-    initialState,
-    store = createStore(
-      rootReducer,
-      initialState,
-      compose(applyMiddleware(sagaMiddleware)),
-    ),
-    ...renderOptions
-  }: {
+	ui: React.ReactElement,
+	{
+		initialState,
+		store = createStore(
+			rootReducer,
+			initialState,
+			compose(applyMiddleware(sagaMiddleware)),
+		),
+		...renderOptions
+	}: {
     initialState?: RootState;
     store?: Store<RootState>;
     renderOptions?: RenderOptions;
   } = {},
 ) => {
-  const history = createMemoryHistory();
+	const history = createMemoryHistory();
 
-  const Wrapper: React.FC = ({ children }) => (
-    <Provider store={store}>
-      <Router history={history}>{children}</Router>
-    </Provider>
-  );
+	const Wrapper: React.FC = ({ children }) => (
+		<Provider store={store}>
+			<Router history={history}>{children}</Router>
+		</Provider>
+	);
 
-  return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
+	return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
 };
 
 // re-export everything

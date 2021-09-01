@@ -1,6 +1,6 @@
-import { Container } from "reactstrap";
-import styled from "styled-components";
-import { colors } from "../../theme/colors";
+import { Container } from 'reactstrap';
+import styled from 'styled-components';
+import { colors } from '../../theme/colors';
 
 export const LayoutContainer = styled(Container)`
   position: relative;
@@ -59,4 +59,4 @@ export const LayoutContainer = styled(Container)`
       margin-bottom: 20px;
     }
   }
-`
+`;
