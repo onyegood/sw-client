@@ -16,7 +16,8 @@ yarn test
 ```
 
 ## Overview
-[![Star Wars](sw.png)]
+![Star Wars](sw.png)
+
 As this is a simple consume website for the Star Wars API - there are a few things a user is probably going to want to do.
 
 1. View all root types, and the resources inside them
@@ -37,6 +38,9 @@ As this is a simple consume website for the Star Wars API - there are a few thin
 
 - A good understanding of basic UX principles, and showing that user flow and key actions have been thought through throughly.
 - This is Star Wars isn't it? Have some fun! 🚀 👽
+
+## Outstanding 
+- Test coverage is currently on 70.38% and the target is 100%.
 
 ## Brownie points
 
