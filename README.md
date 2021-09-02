@@ -18,6 +18,10 @@ yarn test
 ## Overview
 ![Star Wars](sw.png)
 
+## Deployed URL
+
+https://affectionate-ptolemy-583d23.netlify.app
+
 As this is a simple consume website for the Star Wars API - there are a few things a user is probably going to want to do.
 
 1. View all root types, and the resources inside them
