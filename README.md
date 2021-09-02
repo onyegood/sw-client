@@ -19,7 +19,7 @@ yarn test
 
 https://sw-client-goodnews.netlify.app
 ## Overview
-![Star Wars](sw.png)
+![Star Wars](sw.mov)
 
 As this is a simple consume website for the Star Wars API - there are a few things a user is probably going to want to do.
 
