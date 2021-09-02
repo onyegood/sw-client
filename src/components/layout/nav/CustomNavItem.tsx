@@ -4,7 +4,8 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 interface Props {
-  title: string
+  title: string;
+	onClick?: () => void;
 }
 
 /**
@@ -13,12 +14,13 @@ interface Props {
  * set active link by checking if pathname includes route name
  */
 
-const CustomNavItem: React.FC<Props> = ({ title }) => {
+const CustomNavItem: React.FC<Props> = ({ title, onClick }) => {
 	const { pathname } = useLocation();
 
 	return (
 		<NavItem data-testid="navitem">
 			<Link
+				onClick={onClick}
 				className={pathname.includes(title) ? 'active' : ''}
 				data-testid={title}
 				to={`/${title}`}

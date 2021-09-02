@@ -40,12 +40,15 @@ const AppLayout = ({ children }: any) => {
 					>
 						<Nav>
 							{roots.map((k: string) => (
-								<CustomNavItem key={k}
+								<CustomNavItem 
+									onClick={() => setShow(!show)}
+									key={k}
 									title={k}
 								/>
 							))}
 							<NavItem data-testid="navitem">
 								<Link
+									onClick={() => setShow(!show)}
 									className={pathname.includes('favorites') ? 'active' : ''}
 									data-testid=""
 									to="/favorites"
