@@ -20,7 +20,7 @@ yarn test
 
 ## Deployed URL
 
-https://affectionate-ptolemy-583d23.netlify.app
+https://sw-client-goodnews.netlify.app
 
 As this is a simple consume website for the Star Wars API - there are a few things a user is probably going to want to do.
 
