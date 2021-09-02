@@ -19,7 +19,7 @@ const VehiclesPage = () => {
 	if (isLoading && !root)
 		return <LoadingComponent />;
 
-	const filtered = filteredData('name', state.name, root?.results);
+	const filtered = filteredData(state.name, root?.results);
 
 	return (
 		<>

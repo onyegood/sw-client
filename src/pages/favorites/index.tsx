@@ -21,7 +21,7 @@ const FavoritesPage = () => {
 	if (isLoading && !favorites)
 		return <LoadingComponent />;
 
-	const filtered = filteredData('name', state.name, favorites);
+	const filtered = filteredData(state.name, favorites);
 
 	return (
 		<>

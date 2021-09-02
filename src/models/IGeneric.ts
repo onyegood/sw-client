@@ -20,7 +20,7 @@ export interface IGeneric {
   diameter?: string;
   population?: string;
   director?: string;
-  episode_id?: number;
+  episode_id?: string;
   producer?: string;
   classification?: string;
   average_height?: string;

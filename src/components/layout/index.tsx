@@ -1,4 +1,4 @@
-import { Col, Nav, Row } from 'reactstrap';
+import { Col, Nav, NavItem, Row } from 'reactstrap';
 import NavComponent from './nav';
 import React, { useState } from 'react';
 import CustomNavItem from './nav/CustomNavItem';
@@ -6,10 +6,12 @@ import useStoredData from '../../hooks/useStoredData';
 import AppLogo from '../logo';
 import Icon from '../icons';
 import { LayoutContainer } from './Style';
+import { Link, useLocation } from 'react-router-dom';
 
 const AppLayout = ({ children }: any) => {
 	const { roots } = useStoredData();
 	const [show, setShow] = useState(false);
+	const { pathname } = useLocation();
 
 	return (
 		<LayoutContainer fluid>
@@ -42,6 +44,18 @@ const AppLayout = ({ children }: any) => {
 									title={k}
 								/>
 							))}
+							<NavItem data-testid="navitem">
+								<Link
+									className={pathname.includes('favorites') ? 'active' : ''}
+									data-testid=""
+									to="/favorites"
+								>
+									<div className="link-container">
+										{'Favorites'.toUpperCase()}
+										<span />
+									</div>
+								</Link>
+							</NavItem>
 						</Nav>
 					</Col>
 				</Row>

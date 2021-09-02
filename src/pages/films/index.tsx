@@ -20,7 +20,7 @@ const FilmsPage = () => {
 	if (isLoading && !root)
 		return <LoadingComponent />;
 
-	const filtered = filteredData('title', state.name, root?.results);
+	const filtered = filteredData(state.name, root?.results);
 
 	return (
 		<>

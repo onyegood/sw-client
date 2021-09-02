@@ -21,7 +21,7 @@ const showLabel = (key?: string, item?: IGeneric) => {
       labelOne: 'Director',
       valueOne: capitalize(item?.director),
       labelTwo: 'Episode ID',
-      valueTwo: item?.episode_id
+      valueTwo: item?.episode_id?.toString()
     };
   }else if(key === 'species'){
     return {
